@@ -9381,6 +9381,7 @@ function prepareExistingDirectory(git, repositoryPath, repositoryUrl, clean, ref
             // since it might be the current working directory.
             core.info(`Deleting the contents of '${repositoryPath}'`);
             for (const file of yield fs.promises.readdir(repositoryPath)) {
+                console.log(path.join(repositoryPath, file));
                 yield io.rmRF(path.join(repositoryPath, file));
             }
         }
